@@ -1,0 +1,16 @@
+* Start the sim, giving starting location and a copter as the vehicle (the example starts at a sod farm somewhere in the midwest, which works with the sample Python script - if you change this, you need to also change the waypoints):
+
+dronekit-sitl copter --home=35.9835973,-95.8742309,0,180
+
+
+* Start mavproxy to connect to vehicle (port 5760) and share connection through UDP with localhost (port 14551) and external ground station (port 14550):
+
+mavproxy.py --master tcp:127.0.0.1:5760 --out udp:127.0.0.1:14551 --out udp:<your machine’s IP address>:14550
+
+
+* Launch APM planner and connect it to the UDP link at port 14550
+
+
+* Call the Python autopilot script, passing the UDP connection as argument:
+
+sudo python dronekit_test_01.py --connect udp:127.0.0.1:14551

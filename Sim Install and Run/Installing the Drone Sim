@@ -1,0 +1,31 @@
+Drone sim using Python tutorial
+Setup instructions from Tiziano
+
+
+He uses VirtualBox, which works fine. I used VMWare Fusion because I already have it on my Mac, running an Ubuntu 18.04 installation.
+
+
+1 - Install mavproxy:
+apt install python-pip
+pip install mavproxy
+
+
+2 – Install dronekit toolbox:
+pip install dronekit
+pip install dronekit-sitl
+
+
+3 – He doesn’t mention it, but you have to install Mission Planner:
+Go to firmware.ardupilot.org/Tools/APMPlanner
+Download and install the most recent version for your device.
+
+4 - Write Python script
+See my (extended) Python script file.
+
+5 - The following steps are also in my how-to-run text file:
+Start sim, giving starting location and a copter as a vehicle
+Start mavproxy to connect to vehicle (port 5760) and share connection through UDP with localhost (port 14551) and external ground startion (port 14550).
+Connect ground station to UDP port 14550.
+Call the Python script, passing the UDP connection as argument.
+
+6 - Watch it fly!
